@@ -4,11 +4,8 @@ from django.test import Client, TestCase
 
 
 class StaticPagesURLTests(TestCase):
-    def __init__(self):
-        self.guest_client = Client()
-
     def setUp(self):
-        pass
+        self.guest_client = Client()
 
     def test_about_url_exists_at_desired_location(self):
         response = self.guest_client.get('/')
