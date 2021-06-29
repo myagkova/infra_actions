@@ -57,6 +57,7 @@ jobs:
       - name: executing remote ssh commands to deploy
         uses: myagkova/infra_actions@main
         with:
+          context: .
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
