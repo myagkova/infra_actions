@@ -47,7 +47,7 @@ jobs:
         uses: docker/build-push-action@v2 # Выполняет push образа в DockerHub
         with:
           context: .
-          key: ${{ secrets.SSH_KEY }}
+#          key: ${{ secrets.SSH_KEY }}
           push: true
           tags: gelyamolodets/infra_actions:latest
   deploy:
@@ -55,7 +55,7 @@ jobs:
     needs: build_and_push_to_docker_hub
     steps:
       - name: executing remote ssh commands to deploy
-        uses: myagkova/infra_actions/infra_project@main
+        uses: appleboy/ssh-action@master
         with:
           context: .
           host: ${{ secrets.HOST }}
